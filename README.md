@@ -26,3 +26,45 @@ Workshoppen består av følgende oppgaver:
 1. Bygge appen for produksjon
 
 ## 1. FullStack utviklingsmiljø med HMR
+
+<details>
+<summary>Spoilers</summary>
+
+```
+TODO
+```
+
+</details>
+
+## 2. Sever-Side Rendering
+
+<details>
+<summary>Spoilers</summary>
+
+```
+TODO
+```
+
+</details>
+
+## 3. Client & Server Routing
+
+<details>
+<summary>Spoilers</summary>
+
+```
+TODO
+```
+
+</details>
+
+## 4. Bygg for produksjon
+
+<details>
+<summary>Spoilers</summary>
+
+```
+TODO
+```
+
+</details>

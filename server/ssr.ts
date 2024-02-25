@@ -1,23 +1,18 @@
 import express from 'express'
-import fs from 'fs/promises'
+import { promises as fs } from 'fs'
 import { createServer, createViteRuntime } from 'vite'
-import z from 'zod'
+import { z } from 'zod'
 
-const port = process.env.PORT || 3000
-
-const app = express()
-
-app.get('/api/data', (_, res) => {
-  res.json({ data: 'Some server data!' })
-})
-
+// App type changed to 'custom' to support SSR
 const vite = await createServer({
   server: { middlewareMode: true },
   appType: 'custom',
 })
 
+// Handles HMR and SSR
 const runtime = await createViteRuntime(vite)
 
+// Ensure type safety for the server entry module
 const ServerEntry = z.object({
   render: z.function().returns(z.promise(z.string())),
 })
@@ -31,14 +26,16 @@ async function loadModule(modulePath: string): Promise<ServerEntry> {
   return mod
 }
 
-app.use(vite.middlewares)
+const router = express.Router()
 
-app.use('*', async (req, res, next) => {
+router.use(vite.middlewares)
+
+router.use('*', async (req, res, next) => {
   const url = req.originalUrl
   try {
     let template = await fs.readFile('index.html', 'utf-8')
     template = await vite.transformIndexHtml(url, template)
-    const { render } = await loadModule('./src/entry-server.tsx')
+    const { render } = await loadModule('src/entry-server.tsx')
     const rendered = await render()
     const html = template.replace(
       `<div id="root"></div>`,
@@ -51,6 +48,4 @@ app.use('*', async (req, res, next) => {
   }
 })
 
-app.listen(port, () => {
-  console.log('Server running at http://localhost:' + port)
-})
+export default router
