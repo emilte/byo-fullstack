@@ -15,3 +15,14 @@ curl -fsSL https://bun.sh/install | bash
 ```
 
 Nå kan du bruke `bun install` i stedet for `npm install`, og tilsvarende for alle `npm-kommandoer`.
+
+# Oppgaver
+
+Workshoppen består av følgende oppgaver:
+
+1. Sette opp et utviklingsmiljø med [Vite](https://vitejs.dev) og [Express](https://expressjs.com) som starter både backend og frontend samtidig, med Hot Module Reloading for begge
+1. Sette opp Server-Side Rendering (SSR) for våre React-komponenter
+1. Legge til HTML5 history-basert routing som fungerer med SSR
+1. Bygge appen for produksjon
+
+## 1. FullStack utviklingsmiljø med HMR

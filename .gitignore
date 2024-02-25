@@ -28,3 +28,6 @@ dist-ssr
 
 # Rollup visualizer
 stats.html
+
+package-lock.json
+bun.lockb
