@@ -14,7 +14,7 @@ const runtime = await createViteRuntime(vite)
 
 // Ensure type safety for the server entry module
 const ServerEntry = z.object({
-  render: z.function().returns(z.promise(z.string())),
+  render: z.function().args(z.string()).returns(z.promise(z.string())),
 })
 type ServerEntry = z.infer<typeof ServerEntry>
 
@@ -35,8 +35,8 @@ router.use('*', async (req, res, next) => {
   try {
     let template = await fs.readFile('index.html', 'utf-8')
     template = await vite.transformIndexHtml(url, template)
-    const { render } = await loadModule('src/entry-server.tsx')
-    const rendered = await render()
+    const { render } = await loadModule('server/entry-server.tsx')
+    const rendered = await render(url)
     const html = template.replace(
       `<div id="root"></div>`,
       `<div id="root">${rendered}</div>`,
