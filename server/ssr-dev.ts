@@ -30,12 +30,15 @@ const router = express.Router()
 
 router.use(vite.middlewares)
 
+// SPA fallback
 router.use('*', async (req, res, next) => {
   const url = req.originalUrl
   try {
     let template = await fs.readFile('index.html', 'utf-8')
     template = await vite.transformIndexHtml(url, template)
     const { render } = await loadModule('server/entry-server.tsx')
+
+    // URL passed to render function for router
     const rendered = await render(url)
     const html = template.replace(
       `<div id="root"></div>`,

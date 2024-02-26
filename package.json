@@ -2,8 +2,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "bun server/index.ts",
-    "watch": "nodemon --watch server server/index.ts --ext ts,tsx,json -x bun dev"
+    "serve": "bun server/index.ts",
+    "clean": "rm -rf dist",
+    "build": "bun run clean && run-p build:*",
+    "build:client": "vite build --outDir dist/client",
+    "build:server": "NODE_ENV=production bun build server/index.ts --target bun --outfile dist/server.js",
+    "preview": "cd dist && bun server.js",
+    "dev": "nodemon --watch server server/index.ts --ext ts,tsx,json -x bun serve"
   },
   "devDependencies": {
     "@tsconfig/bun": "^1.0.4",
@@ -18,6 +23,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-react": "^7.33.2",
     "nodemon": "^3.1.0",
+    "npm-run-all2": "^6.1.2",
     "prettier": "^3.2.5",
     "typescript": "^5.3.3",
     "vite": "^5.1.4",
@@ -28,6 +34,7 @@
     "express": "^4.18.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "sirv": "^2.0.4",
     "ts-pattern": "^5.0.8",
     "zod": "^3.22.4"
   }

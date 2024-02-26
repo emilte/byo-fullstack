@@ -38,6 +38,8 @@ TODO
 
 ## 2. Sever-Side Rendering
 
+[Guide](https://vitejs.dev/guide/ssr)
+
 <details>
 <summary>Spoilers</summary>
 
