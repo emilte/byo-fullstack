@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "serve": "bun server/index.ts",
+    "dev": "TODO"
+  }
+}

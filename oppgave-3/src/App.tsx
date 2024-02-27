@@ -1,13 +1,7 @@
-import { Link } from '@swan-io/chicane'
 import { useEffect, useState } from 'react'
-import { match } from 'ts-pattern'
-import Cats from './Cats'
-import { Router } from './Router'
 
 export default function App() {
   const [data, setData] = useState(null)
-
-  const route = Router.useRoute(['Home', 'Cats'])
 
   useEffect(() => {
     fetch('/api/data')
@@ -20,21 +14,18 @@ export default function App() {
       <h1>Hello, world!</h1>
       <h2>From API:</h2>
       <pre>{JSON.stringify(data, null, 2)}</pre>
+
+      {/** TODO: Make these links not reload the page */}
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <a href="/">Home</a>
         </li>
         <li>
-          <Link to="/cats">cats</Link>
+          <a href="/cats">cats</a>
         </li>
       </ul>
 
-      {match(route)
-        .with({ name: 'Home' }, () => <h1>Home</h1>)
-        .with({ name: 'Cats' }, () => <Cats />)
-        .otherwise(() => (
-          <h1>404</h1>
-        ))}
+      {/** TODO: Show the relevant page, or 404 */}
     </div>
   )
 }

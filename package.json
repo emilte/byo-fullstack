@@ -1,15 +1,6 @@
 {
   "private": true,
   "type": "module",
-  "scripts": {
-    "serve": "bun server/index.ts",
-    "clean": "rm -rf dist",
-    "build": "bun run clean && run-p build:*",
-    "build:client": "vite build --outDir dist/client",
-    "build:server": "NODE_ENV=production bun build server/index.ts --target bun --outfile dist/server.js",
-    "preview": "cd dist && bun server.js",
-    "dev": "nodemon --watch server server/index.ts --ext ts,tsx,json -x bun serve"
-  },
   "devDependencies": {
     "@tsconfig/bun": "^1.0.4",
     "@tsconfig/vite-react": "^3.0.0",
