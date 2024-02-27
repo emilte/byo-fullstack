@@ -21,9 +21,15 @@ Nå kan du bruke `bun install` i stedet for `npm install`, og tilsvarende for al
 Workshoppen består av følgende oppgaver:
 
 1. Sette opp et utviklingsmiljø med [Vite](https://vitejs.dev) og [Express](https://expressjs.com) som starter både backend og frontend samtidig, med Hot Module Reloading for begge
-1. Sette opp Server-Side Rendering (SSR) for våre React-komponenter
-1. Legge til HTML5 history-basert routing som fungerer med SSR
-1. Bygge appen for produksjon
+1. Sette opp [Server-Side Rendering (SSR)](https://vitejs.dev/guide/ssr) for våre React-komponenter
+1. Legge til [HTML5 history-basert routing som fungerer med SSR](https://swan-io.github.io/chicane/)
+1. Bygge appen for [produksjon](https://vitejs.dev/guide/build.html)
+
+BONUS:
+
+1. Sett opp [valgfritt CSS-bibliotek](https://tailwindcss.com/) med styling som fungerer både fra server og client
+1. Legg til [tRPC](https://trpc.io) for full-stack type safe async data fetching
+1. [Lag din egen router](https://dev.to/franciscomendes10866/create-your-own-react-router-53ng)
 
 ## 1. FullStack utviklingsmiljø med HMR
 

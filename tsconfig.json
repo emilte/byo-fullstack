@@ -1,14 +1,3 @@
 {
-  "extends": "@tsconfig/vite-react/tsconfig.json",
-  "compilerOptions": {
-    "baseUrl": "./",
-    "paths": {
-      "@server/*": [
-        "server/*"
-      ],
-      "@app/*": [
-        "src/*"
-      ],
-    }
-  }
+  "extends": "@tsconfig/vite-react/tsconfig.json"
 }

@@ -14,6 +14,7 @@
     "@tsconfig/bun": "^1.0.4",
     "@tsconfig/vite-react": "^3.0.0",
     "@types/bun": "^1.0.7",
+    "@types/express": "^4.17.21",
     "@types/react": "^18.2.58",
     "@types/react-dom": "^18.2.19",
     "@typescript-eslint/eslint-plugin": "^7.0.2",
@@ -26,8 +27,7 @@
     "npm-run-all2": "^6.1.2",
     "prettier": "^3.2.5",
     "typescript": "^5.3.3",
-    "vite": "^5.1.4",
-    "vite-tsconfig-paths": "^4.3.1"
+    "vite": "^5.1.4"
   },
   "dependencies": {
     "@swan-io/chicane": "^1.4.1",
